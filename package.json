@@ -1,0 +1,33 @@
+{
+  "name": "@kodus/cli",
+  "version": "0.0.1",
+  "description": "CLI tool for Kodus installation and management",
+  "main": "index.js",
+  "type": "module",
+  "preferGlobal": true,
+  "bin": {
+    "kodus": "./index.js"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": ["kodus", "cli", "installation", "deployment"],
+  "author": "Kodus",
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kodus/kodus-cli.git"
+  },
+  "bugs": {
+    "url": "https://github.com/kodus/kodus-cli/issues"
+  },
+  "homepage": "https://github.com/kodus/kodus-cli#readme",
+  "dependencies": {
+    "chalk": "^4.1.2",
+    "commander": "^11.1.0",
+    "dotenv": "^16.4.1",
+    "fs-extra": "^11.2.0",
+    "inquirer": "^8.2.6",
+    "ora": "^5.4.1"
+  }
+}
