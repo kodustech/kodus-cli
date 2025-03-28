@@ -107,7 +107,7 @@ npm test
 
 ## 📜 License
 
-MIT © [Your Name]
+MIT © Kodus
 
 ## 🌟 Star History
 
