@@ -1,6 +1,8 @@
 <div align="center">
   
-# 🚀 KODUS CLI
+<p align="center">
+  <img src="assets/cli-banner.png" alt="Kodus CLI Banner" width="600px" />
+</p>
 
 **Deploy and manage Kodus AI Code Review Agents in your infrastructure**
 
@@ -8,13 +10,7 @@
 [![npm version](https://img.shields.io/npm/v/@kodus/cli)](https://www.npmjs.com/package/@kodus/cli)
 [![Downloads](https://img.shields.io/npm/dm/@kodus/cli)](https://www.npmjs.com/package/@kodus/cli)
 
-<p align="center">
-  <img src="assets/cli-banner.png" alt="Kodus CLI Banner" width="600px" />
-</p>
-
 </div>
-
----
 
 ## 🌟 Overview
 
@@ -58,6 +54,7 @@ kodus install
 ### Environment Types
 
 - **Local Development**
+
   - Perfect for testing and development
   - Runs everything on localhost
   - Ideal for small teams and individual developers
@@ -69,11 +66,11 @@ kodus install
 
 ### Supported Git Services
 
-| Service | Features |
-|---------|----------|
-| GitHub | Pull Request Reviews, Issue Analysis |
-| GitLab | Merge Request Reviews, Pipeline Integration |
-| Bitbucket | Pull Request Reviews, Repository Analysis |
+| Service   | Features                                    |
+| --------- | ------------------------------------------- |
+| GitHub    | Pull Request Reviews, Issue Analysis        |
+| GitLab    | Merge Request Reviews, Pipeline Integration |
+| Bitbucket | Pull Request Reviews, Repository Analysis   |
 
 ### AI Integration
 
@@ -95,7 +92,7 @@ Kodus supports multiple AI providers for code review:
 
 ## 🤝 Contributing
 
-We welcome contributions! Please read our [Contributing Guide](CONTRIBUTING.md) to get started.
+We welcome contributions!
 
 ```bash
 # Clone the repository
