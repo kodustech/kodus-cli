@@ -1,7 +1,7 @@
 <div align="center">
   
 <p align="center">
-  <img src="assets/cli-banner.png" alt="Kodus CLI Banner" width="600px" />
+  <img src="https://kodus.io/wp-content/uploads/2025/04/koduscli.png" alt="Kodus CLI Banner" />
 </p>
 
 **Deploy and manage Kodus AI Code Review Agents in your infrastructure**
