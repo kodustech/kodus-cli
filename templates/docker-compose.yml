@@ -1,6 +1,6 @@
 services:
   kodus-web:
-    image: localhost:5000/kodus-web:prod
+    image: ghcr.io/kodustech/kodus-web:latest
     container_name: kodus-web-prod
     ports:
       - "${WEB_PORT}:${WEB_PORT}"
@@ -12,7 +12,7 @@ services:
       - .env
 
   kodus-orchestrator:
-    image: localhost:5000/kodus-orchestrator:prod
+    image: ghcr.io/kodustech/kodus-ai:latest
     platform: linux/amd64
     container_name: ${GLOBAL_API_CONTAINER_NAME}
     volumes:
@@ -100,26 +100,8 @@ services:
           cpus: "0.75"
           memory: 2G
 
-  grafana:
-    container_name: grafana-prod
-    image: grafana/grafana:latest
-    environment:
-      - ENV=production
-      - GF_AUTH_ANONYMOUS_ENABLED=false
-      - GF_SECURITY_ALLOW_EMBEDDING=false
-      - GF_SECURITY_DISABLE_GRAVATAR=true
-      - GF_SECURITY_COOKIE_SECURE=true
-    deploy:
-      resources:
-        limits:
-          cpus: "1"
-          memory: 4G
-        reservations:
-          cpus: "0.75"
-          memory: 2G
-
   migration:
-    image: localhost:5000/kodus-orchestrator:prod
+    image: ghcr.io/kodustech/kodus-ai:latest
     platform: linux/amd64
     container_name: migration
     depends_on:
