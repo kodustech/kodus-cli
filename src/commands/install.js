@@ -11,6 +11,11 @@ import {
   copyTemplates,
   createDockerNetworks,
 } from "../utils/helpers.js";
+import { fileURLToPath } from 'url';
+import { dirname } from 'path';
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
 
 const maxAttempts = 30; // 5 minutes with 10 second intervals
 
@@ -45,7 +50,7 @@ const waitForService = async (serviceName, successMessage, errorMessage) => {
   }
 };
 
-const setupEnvironment = async () => {
+export const setupEnvironment = async () => {
   try {
     // Check prerequisites
     console.log(chalk.blue("\n🔍 Checking prerequisites..."));
@@ -260,7 +265,16 @@ const setupEnvironment = async () => {
     // Setup database
     const dbSpinner = ora("Setting up database").start();
     try {
-      execSync("./scripts/setup-db.sh", { stdio: "pipe" });
+      const moduleRoot = dirname(dirname(__dirname)); // Sobe 2 níveis: commands -> src -> root
+      const scriptPath = path.join(moduleRoot, 'scripts', 'setup-db.sh');
+      
+      if (!fs.existsSync(scriptPath)) {
+        dbSpinner.fail('setup-db.sh script not found!');
+        console.error(chalk.red(`\nScript expected at: ${scriptPath}`));
+        process.exit(1);
+      }
+
+      execSync(`sh ${scriptPath}`, { stdio: "pipe" });
       dbSpinner.succeed("Database setup completed");
     } catch (error) {
       dbSpinner.fail("Failed to setup database");
@@ -307,6 +321,4 @@ const setupEnvironment = async () => {
     console.error(chalk.red("\n❌ Installation failed:"), error.message);
     process.exit(1);
   }
-};
-
-export default setupEnvironment; 
+}; 

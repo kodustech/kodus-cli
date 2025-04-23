@@ -1,10 +1,12 @@
 #!/usr/bin/env node
 
 import { program } from "commander";
-import setupEnvironment from "./src/commands/install.js";
+import { fileURLToPath } from 'url';
+import { dirname, join } from 'path';
+import { setupEnvironment } from './src/commands/install.js';
 
 // CLI version
-program.version("1.0.0");
+program.version("0.0.9");
 
 // Install command
 program

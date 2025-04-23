@@ -34,22 +34,6 @@ services:
     env_file:
       - .env
 
-  rabbitmq:
-    image: localhost:5000/rabbitmq:prod
-    container_name: rabbitmq-prod
-    hostname: rabbitmq
-    ports:
-      - "5672:5672"
-      - "15672:15672"
-    networks:
-      - monitoring-network
-      - shared-network
-    environment:
-      - RABBITMQ_SERVER_ADDITIONAL_ERL_ARGS=-rabbit heartbeat 60
-    restart: unless-stopped
-    env_file:
-      - .env
-
   db_kodus_postgres:
     image: postgres:latest
     container_name: db_kodus_postgres

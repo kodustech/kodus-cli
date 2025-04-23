@@ -1,21 +1,32 @@
 {
   "name": "@kodus/cli",
-  "version": "0.0.2",
+  "version": "0.0.9",
   "description": "CLI tool for Kodus installation and management",
   "main": "index.js",
   "type": "module",
+  "exports": {
+    ".": "./index.js",
+    "./src/*": "./src/*.js"
+  },
   "preferGlobal": true,
   "bin": {
     "kodus": "./index.js"
   },
   "files": [
     "index.js",
-    "templates/**/*"
+    "src/**/*.js",
+    "templates/**/*",
+    "scripts/**/*.sh"
   ],
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "keywords": ["kodus", "cli", "installation", "deployment"],
+  "keywords": [
+    "kodus",
+    "cli",
+    "installation",
+    "deployment"
+  ],
   "author": "Kodus",
   "license": "ISC",
   "repository": {

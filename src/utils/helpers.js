@@ -4,6 +4,11 @@ import path from 'path';
 import { execSync } from 'child_process';
 import ora from 'ora';
 import chalk from 'chalk';
+import { fileURLToPath } from 'url';
+import { dirname } from 'path';
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
 
 export const generateSecretKey = () => crypto.randomBytes(32).toString("base64");
 
@@ -15,8 +20,32 @@ export const generateDbPassword = () =>
     .slice(0, 16);
 
 export const copyTemplates = (targetDir) => {
-  const templatesDir = path.join(process.cwd(), 'templates');
-  fs.copySync(path.join(templatesDir, 'docker-compose.yml'), path.join(targetDir, 'docker-compose.yml'));
+  try {
+    const moduleDir = dirname(dirname(dirname(__filename))); // Sobe 3 níveis: utils -> src -> root
+    const templatesDir = path.join(moduleDir, 'templates');
+    
+    if (!fs.existsSync(templatesDir)) {
+      console.error(chalk.red(`Templates directory not found at: ${templatesDir}`));
+      console.error(chalk.yellow('Current directory structure:'));
+      console.error(chalk.white(fs.readdirSync(moduleDir)));
+      throw new Error('Templates directory not found');
+    }
+    
+    const sourceFile = path.join(templatesDir, 'docker-compose.yml');
+    const targetFile = path.join(targetDir, 'docker-compose.yml');
+    
+    if (!fs.existsSync(sourceFile)) {
+      console.error(chalk.red(`Template file not found at: ${sourceFile}`));
+      console.error(chalk.yellow('Files in templates directory:'));
+      console.error(chalk.white(fs.readdirSync(templatesDir)));
+      throw new Error('Template file not found');
+    }
+    
+    fs.copySync(sourceFile, targetFile);
+  } catch (error) {
+    console.error(chalk.red('Error copying templates:'), error);
+    throw error;
+  }
 };
 
 export const backupEnv = () => {
