@@ -6,7 +6,7 @@ import { dirname, join } from 'path';
 import { setupEnvironment } from './src/commands/install.js';
 
 // CLI version
-program.version("0.0.9");
+program.version("0.0.10");
 
 // Install command
 program
