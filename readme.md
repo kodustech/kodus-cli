@@ -30,7 +30,7 @@ Kodus CLI is your gateway to running Kodus AI Code Review Agents in your own inf
 
 ```bash
 # Install globally
-npm install -g kodus-cli
+npm install -g @kodus/cli
 
 # Deploy Kodus in your infrastructure
 kodus install
