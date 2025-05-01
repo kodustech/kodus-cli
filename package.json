@@ -1,6 +1,6 @@
 {
   "name": "@kodus/cli",
-  "version": "0.0.9",
+  "version": "0.0.10",
   "description": "CLI tool for Kodus installation and management",
   "main": "index.js",
   "type": "module",
