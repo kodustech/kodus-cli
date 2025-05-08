@@ -12,6 +12,8 @@
 
 </div>
 
+## Our CLI is a work in progress (feel free to contribute!)
+
 ## 🌟 Overview
 
 Kodus CLI is your gateway to running Kodus AI Code Review Agents in your own infrastructure. With a single command, deploy and manage your code review automation system, keeping your code quality high while maintaining full control over your data and infrastructure.
